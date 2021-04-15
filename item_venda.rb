@@ -5,8 +5,8 @@ class Item_Venda < Totalizavel
 	def initialize(valor, quantidade)
 		@valor = valor
 		@quantidade = quantidade
-		@produto = Array.new
-		@total = valor * quantidade
+		@total = 0
+		@produto
 	end
 
 	def to_s
@@ -19,8 +19,8 @@ class Item_Venda < Totalizavel
 			return false
 		end
 	end
-	def total(total)
-		@valor * @quantidade
+	def total
+		@total = @valor * @quantidade
 	end
 
 end

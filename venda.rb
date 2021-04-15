@@ -1,11 +1,12 @@
 class Venda < Totalizavel
 
-	attr_accessor :produto, :data, :cliente, :itens, :numero
+	attr_accessor :itens, :data, :cliente, :itens, :numero
 
 	def initialize(numero, data, cliente)
 		@data = data
 		@cliente = cliente
 		@numero = numero
+		@itens = Array.new
 	end
 
 	def total(total)
