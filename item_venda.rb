@@ -1,19 +1,26 @@
 class Item_Venda < Totalizavel
 
-	attr_accessor :nome, :valor, :quantidade
+	attr_accessor :nome, :valor, :quantidade, :produto
 
-	def initialize(nome, valor , quantidade)
-		@nome = nome
+	def initialize(valor, quantidade)
 		@valor = valor
 		@quantidade = quantidade
+		@produto = Array.new
+		@total = valor * quantidade
 	end
 
 	def to_s
 		"Produto: "+ @nome +"\nValor: " + @valor +"\nQuantidade: " + @quantidade
 	end
-
-	def total
-		valor*quantidade
+  def removeitem(nome)
+		if @nome.eql?(nome)
+			return true
+		else
+			return false
+		end
+	end
+	def total(total)
+		@valor * @quantidade
 	end
 
 end
