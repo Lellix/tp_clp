@@ -1,6 +1,6 @@
 class Cliente < Pessoa
 
-	att_acessor :rg, :data_nascimento
+	attr_accessor :rg, :data_nascimento
 
 	def initialize(nome, endereco, rg, data_nascimento)
 		super(nome, endereco)

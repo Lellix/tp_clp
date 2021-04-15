@@ -1,8 +1,8 @@
 class Venda < Totalizavel
 
-	att_acessor :numero, :data, :cliente, :itens
+	attr_accessor :numero, :data, :cliente, :itens
 
-	@def initialize(numero, data, cliente)
+	def initialize(numero, data, cliente)
 		@numero = numero
 		@data = data
 		@cliente = Cliente.new(cliente.nome, cliente.endereco, ciente.rg, cliente.data_nascimento)

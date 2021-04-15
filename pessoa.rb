@@ -1,14 +1,13 @@
 class Pessoa
 
-	att_acessor :nome, :endereco
+  attr_accessor :nome, :endereco
+	 def initialize(nome, endereco)
+ 		@nome = nome
+ 		@endereco = endereco
+ 	end
 
-	def initialize(nome, endereco)
-		@nome = nome
-		@endereco = endereco
-	end
-
-	def to_s
-		"Nome: "+@nome+" \n -  Endereço: "+@endereco
-	end
+	 def to_s
+ 		"Nome: "+@nome+" \n -  Endereço: "+@endereco
+ 	end
 	
 end

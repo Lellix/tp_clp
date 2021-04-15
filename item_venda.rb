@@ -1,15 +1,15 @@
 class Item_Venda < Totalizavel
 
-	att_acessor :produto, :valor, :quantidade
+	attr_accessor :nome, :valor, :quantidade
 
-	@def initialize(produto, quantidade)
-		@produto = produto.nome
-		@valor = produto.valor
+	def initialize(nome, valor , quantidade)
+		@nome = nome
+		@valor = valor
 		@quantidade = quantidade
 	end
 
 	def to_s
-		"Produto: "+@produto+"\nValor: "+@valor+"\nQuantidade: "+@quantidade
+		"Produto: "+ @nome +"\nValor: " + @valor +"\nQuantidade: " + @quantidade
 	end
 
 	def total
