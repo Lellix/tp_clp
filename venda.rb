@@ -13,6 +13,7 @@ class Venda < Totalizavel
 		total = 1
 		super
 	end
+	
 	def to_s
 		"Número: "+@numero+"\nData: "+@data+"\nCliente: "+@cliente.nome+" - RG: "+@rg
 	end

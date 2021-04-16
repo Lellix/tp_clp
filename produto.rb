@@ -7,7 +7,9 @@ class Produto
     @nome = nome
     @valor = valor
   end
+
   def achaproduto(nome)
+    
     if @nome.eql?(nome)
       return true
     else
