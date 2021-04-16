@@ -93,7 +93,6 @@ while escolha != -1
     else
       puts 'Lista de produtos vazia'
     end
-
   when '5' # Realizar venda#
 
     numero = interface.get_var("Preencha as informações. \nNúmero: ")
@@ -202,7 +201,61 @@ while escolha != -1
         end
       end
     end
+  when '6'
+    id = interface.get_var("Digite o nome da pessoa que deseja alterar: ")
+    i = 0
 
+    until pessoas[i].nome.eql?(id)
+      i = i+1 
+    end
+
+    variavel = interface.get_var('Digite qual informação da pessoa deseja alterar: ')
+    informacao = interface.get_var('Digite a nova informação: ')
+
+    pessoas[i].alterar_pessoa(variavel, informacao)
+  when '7'
+    id = interface.get_var("Digite o rg do cliente que deseja alterar: ")
+    i = 0
+
+    until clientes[i].rg.eql?(id)
+      i = i+1 
+    end
+
+    variavel = interface.get_var('Digite qual informação do cliente deseja alterar: ')
+    informacao = interface.get_var('Digite a nova informação: ')
+
+    clientes[i].alterar_cliente(variavel, informacao)
+  when '8'
+    id = interface.get_var("Digite o codigo do produto que deseja alterar: ")
+    i = 0
+  
+    until produtos[i].codigo.eql?(id)
+      i = i+1 
+    end
+  
+    variavel = interface.get_var('Digite qual informação do produto deseja alterar: ')
+    informacao = interface.get_var('Digite a nova informação: ')
+  
+    produtos[i].alterar(variavel, informacao)
+  when '9'
+    visualizacoes = interface.get_var.to_i
+
+    case visualizacoes
+    when '1'
+      pessoas.each do |i|
+        pessoas[i].to_s
+    when '2'
+      clientes.each do |i|
+        pessoas[i].to_s
+    when '3'
+      produtos.each do |i|
+        pessoas[i].to_s
+    when '4'
+      vendas.each do |i|
+        pessoas[i].to_s
+    when '-1'
+    else
+    end
   when '-1'
     break
   else

@@ -17,5 +17,13 @@ class Pessoa
   	def to_s
  		"Nome: "+@nome+" \n -  Endereço: "+@endereco
  	end
+
+	def alterar_pessoa(variavel, conteudo)
+		if(variavel == 'nome')
+		  @nome = conteudo
+		elsif(variavel == 'endereco')
+		  @endereco = conteudo
+		end
+	end
 	
 end

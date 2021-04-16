@@ -17,6 +17,18 @@ class Cliente < Pessoa
       return false
   end
 
+  def alterar_cliente(variavel, conteudo)
+    if(variavel == 'nome')
+      @nome = conteudo
+    elsif(variavel == 'endereco')
+      @endereco == conteudo
+    elsif(variavel == 'rg')
+      @rg = conteudo
+    elsif(variavel == 'data_nascimento')
+      @data_nascimento = conteudo
+    end
+  end
+
 
   def to_s
     "Nome: #{@nome} \n -  Endereço: #{@endereco}RG: #{@rg} \n -  Data de Nascimento: #{@data_nascimento}"
