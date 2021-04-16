@@ -59,7 +59,7 @@ while escolha != -1
 
   when '3' # Adicionar produto 
 
-    codigo = interface.get_var("Preencha as informações: \nDigite o código: ").to_i
+    codigo = interface.get_var("Preencha as informações: \nDigite o código: ")
     nome = interface.get_var('Digite o nome: ')
     valor = interface.get_var('Digite o valor: ').to_f
 
