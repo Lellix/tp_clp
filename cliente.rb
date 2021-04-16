@@ -31,7 +31,7 @@ class Cliente < Pessoa
   end
 
   def to_s
-    "Nome: #{@nome} \n -  Endereço: #{@endereco}RG: #{@rg} \n -  Data de Nascimento: #{@data_nascimento}"
+    "Nome: #{@nome}  -  Endereço: #{@endereco}  -  RG: #{@rg}  -  Data de Nascimento: #{@data_nascimento}"
   end
 
 end

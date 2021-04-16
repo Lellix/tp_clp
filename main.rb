@@ -63,6 +63,7 @@ while escolha != -1
     nome = interface.get_var('Digite o nome: ')
     valor = interface.get_var('Digite o valor: ').to_f
 
+    boo = false
     i=0
     while i<produtos.length
       if produtos.at(i).nome.eql?(nome) || produtos.at(i).codigo.eql?(codigo)
@@ -231,18 +232,31 @@ while escolha != -1
       informacao = interface.get_var('Digite a nova informação: ')
 
       pessoas[i-1].alterar_pessoa(variavel, informacao)
+
+
+      # verificando se esta pessoa ja esta como cliente, e se tiver devemos alterar o nome em cliente tambem
+      i = 0
+      bool = false
+      while i < clientes.length && !bool
+        bool = clientes[i].nome.eql?(id)
+        i += 1
+      end
+      if bool == true
+        clientes[i-1].alterar_cliente(variavel, informacao)
+      end
+
       puts 'Dado alterado!'
     else
       puts 'Pessoa nao encontrada!'
     end
 
   when '7'
-    id = interface.get_var("Digite o rg do cliente que deseja alterar: ")
+    id = interface.get_var("Digite o nome do cliente que deseja alterar: ")
     i = 0
     bool = false
 
     while i < clientes.length && !bool
-      bool = clientes[i].rg.eql?(id)
+      bool = clientes[i].nome.eql?(id)
       i += 1
     end
 
@@ -251,6 +265,18 @@ while escolha != -1
       informacao = interface.get_var('Digite a nova informação: ')
 
       clientes[i-1].alterar_cliente(variavel, informacao)
+
+      #devemos alterar alem do nome em cliente, o nome em pessoa
+      i = 0
+      bool = false
+      while i < pessoas.length && !bool
+        bool = pessoas[i].nome.eql?(id)
+        i += 1
+      end
+      if bool == true
+        pessoas[i-1].alterar_pessoa(variavel, informacao)
+      end
+
       puts 'Dado alterado!'
     else
       puts 'Cliente nao encontrado!'
