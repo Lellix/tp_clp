@@ -9,7 +9,6 @@ class Produto
   end
 
   def achaproduto(nome)
-
     if @nome.eql?(nome)
       return true
     else
@@ -18,13 +17,17 @@ class Produto
   end
 
   def alterar(variavel, conteudo)
-    if(variavel == 'codigo')
+    if variavel == 'codigo'
       @codigo = conteudo
-    elsif(variavel == 'nome')
+    elsif variavel == 'nome'
       @nome = conteudo
-    elsif(variavel == 'valor')
+    elsif variavel == 'valor'
       @valor = conteudo
     end
+  end
+
+  def to_s
+    "Codigo: #{@codigo} Nome: #{@nome} Valor: #{@valor}"
   end
 
 end

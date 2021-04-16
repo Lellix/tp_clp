@@ -2,11 +2,11 @@ class Totalizavel
   	class TotalizavelAbstratoErroInstaciacao < RuntimeError
 	end
 
-	  def initialize
+	def initialize
   		raise TotalizavelAbstratoErroInstaciacao, "Nao se pode instanciar essa classe diretamente"
-  	end
+  end
 
-	  def total(total)
+	def total(total)
   		i=0
   		dois = 0.0
   		while i < total.length
@@ -15,6 +15,6 @@ class Totalizavel
 			end
 			puts "Total: " + dois.to_s
   		#calcula o total da compra
-  	end
+	end
 
 end

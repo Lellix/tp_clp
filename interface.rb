@@ -8,7 +8,7 @@ class Interface
         puts 'Digite 5 para realizar uma venda'
         puts 'Digite 6 para alterar uma pessoa'
         puts 'Digite 7 para alterar um cliente'
-        puts 'Digite 8 para alterar um item'
+        puts 'Digite 8 para alterar um produto'
         puts 'Digite 9 para visualizações'
         puts 'Digite -1 para sair do programa'
         puts 'Sua escolha: '

@@ -1,25 +1,21 @@
 class Venda < Totalizavel
 
-	attr_accessor :itens, :data, :cliente, :itens, :numero
+  attr_accessor :itens, :data, :cliente, :itens, :numero
 
-	def initialize(numero, data, cliente)
-		@data = data
-		@cliente = cliente
-		@numero = numero
-		@itens = Array.new
-	end
+  def initialize(numero, data, cliente)
+    @numero = numero
+    @data = data
+    @cliente = cliente
+    @itens = Array.new
+  end
 
-	def total(total)
-		total = @itens
-		super
-	end
-	
-	def to_s
-		"Número: "+@numero+"\nData: "+@data+"\nCliente: "+@cliente.nome+" - RG: "+@rg
-	end
+  def total(total)
+    total = @itens
+    super
+  end
 
-	def Add_Item(item)
-		@itens << item
-	end
+  def to_s
+    "Número: #{@numero}\nData: #{@data}\nCliente: #{@cliente.nome} - RG: #{@cliente.rg}"
+  end
 
 end
