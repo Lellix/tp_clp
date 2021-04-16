@@ -10,7 +10,7 @@ class Venda < Totalizavel
 	end
 
 	def total(total)
-		total = 1
+		total = @itens
 		super
 	end
 	

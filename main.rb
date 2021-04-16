@@ -26,7 +26,7 @@ end
 
 interface = Interface.new() # Objeto responsável por manipular a interface em linha de código do programa #
 
-# Executa o programa enquanto a escolha é diferente de -1 #
+# #
 while escolha != -1
 
   escolha = interface.opcao
@@ -40,9 +40,9 @@ while escolha != -1
     pessoa = Pessoa.new(nome, endereco)
     pessoas << pessoa
 
-  when '2' # Remover pessoa #
+  when '2' # Remover pessoa#
 
-    if !pessoas.empty? # Verifica se existe alguma pessoa cadastrada #
+    if !pessoas.empty?
 
       nome = interface.get_var('Nome: ')
       endereco = interface.get_var('Endereço: ')
@@ -109,7 +109,7 @@ while escolha != -1
       when '0' # OPCAO 0#
         nome = interface.get_var('Digite o nome do cliente: ')
         endereco = interface.get_var('Digite o endereço do cliente: ')
-
+          
         i = 0
         bool = false
 
@@ -146,7 +146,8 @@ while escolha != -1
               item.produto = produtos.at(i - 1)
               item.total
               venda.itens << item
-
+              total=Array.new
+              venda.total(total)
               j = interface.get_var('Digite -1 para parar a compra').to_i
 
             end
@@ -192,7 +193,8 @@ while escolha != -1
             item.produto = produtos.at(i - 1)
             item.total
             venda.itens << item
-
+            total=Array.new
+            venda.total(total)
             j = interface.get_var('Digite -1 para parar a compra').to_i
             end
           end
