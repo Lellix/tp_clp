@@ -8,7 +8,7 @@ require './item_venda'
 require './produto'
 require './interface'
 
-# criar arrays para armazenar as instâncias dos objetos criados #
+# Arrays responsáveis por armazenar a os objetos criados #
 clientes = []
 itens = []
 vendas = []
@@ -24,14 +24,15 @@ def visualizar
   produtos.to_s
 end
 
-interface = Interface.new()
+interface = Interface.new() # Objeto responsável por manipular a interface em linha de código do programa #
 
+# #
 while escolha != -1
 
   escolha = interface.opcao
 
   case escolha
-  when '1' # Adicionar pessoa#
+  when '1' # Adicionar pessoa #
 
     nome = interface.get_var('Digite os dados da pessoa: \nNome: ')
     endereco = interface.get_var('Endereco: ')
@@ -95,29 +96,20 @@ while escolha != -1
 
   when '5' # Realizar venda#
 
-    puts 'Preencha as informações: '
-    puts 'Numero: '
-    numero = gets
-    numero = numero.chomp
-    puts 'Data: '
-    data = gets
-    data = data.chomp
+    numero = interface.get_var('Preencha as informações. \nNúmero: ')
+    data = interface.get_var('Data: ')
 
     if pessoas.length.zero? # Se a lista de pessoas for vazia, nao executar o resto#
       puts 'Lista de pessoas vazia'
+
     else
-      puts 'O cliente ja e registrado? (1 para sim, 0 para nao): '
-      escolha = gets
-      escolha = escolha.chomp
+      escolha = interface.get_var('O cliente já está registrado? (1 para sim, 0 para não): ')
 
       case escolha
       when '0' # OPCAO 0#
-        puts 'Digite o nome do cliente: '
-        nome = gets
-        nome = nome.chomp
-        puts 'Digite o endereco do cliente: '
-        endereco = gets
-        endereco = endereco.chomp
+        nome = interface.get_var('Digite o nome do cliente: ')
+        endereco = interface.get_var('Digite o endereço do cliente: ')
+          
         i = 0
         bool = false
 
