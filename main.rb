@@ -244,15 +244,19 @@ while escolha != -1
     when '1'
       pessoas.each do |i|
         pessoas[i].to_s
+      end
     when '2'
       clientes.each do |i|
         pessoas[i].to_s
+      end
     when '3'
       produtos.each do |i|
         pessoas[i].to_s
+      end
     when '4'
       vendas.each do |i|
         pessoas[i].to_s
+      end
     when '-1'
     else
     end
