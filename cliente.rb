@@ -4,21 +4,21 @@ class Cliente < Pessoa
 
   attr_accessor :rg, :data_nascimento
 
-  def initialize(nome, endereco, rg, data_nascimento)
+  def initialize(nome, endereco, rg, data_nascimento) # Construtor
     super(nome, endereco)
     @rg = rg
     @data_nascimento = data_nascimento
   end
 
-  def achacliente(nome, rg)
+  def achacliente(nome, rg) # Verifica se o cliente existe
     if @nome.eql?(nome) && @rg.eql?(rg)
-      puts "Achado"
+      puts "Encontrado"
       return true
     end
       return false
   end
 
-  def alterar_cliente(variavel, conteudo)  #altera determinado conteudo do cliente
+  def alterar_cliente(variavel, conteudo)  # Altera uma informação do cliente
     if variavel == 'nome'
       @nome = conteudo
     elsif variavel == 'endereco'

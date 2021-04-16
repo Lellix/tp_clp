@@ -9,8 +9,17 @@ class Venda < Totalizavel
     @itens = Array.new
   end
 
-  def total(total)
-    total = @itens
+  def total(total) # Retorna o valor total da compra
+    itens_aux = @itens
+
+	i=0
+	aux = 0.0
+
+	while i < itens_aux.length
+	  aux = itens_aux.at(i).total + aux
+	  i+=1
+  	end
+	total = aux
     super
   end
 

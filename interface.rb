@@ -1,3 +1,7 @@
+# Classe responsável por manipular a interface por linha de código. #
+# Seus métodos são referentes aos menus de opções e às funções que  #
+# recebem parâmetros do usuário.                                    #
+
 class Interface
 
     def opcao

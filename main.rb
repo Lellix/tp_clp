@@ -32,7 +32,7 @@ while escolha != -1
     pessoas << pessoa
     puts 'Pessoa Adicionada!'
 
-  when '2' # Remover pessoa
+  when '2' # Remover pessoa 
 
     if !pessoas.empty?
 
@@ -57,7 +57,7 @@ while escolha != -1
       puts 'Sem pessoas adicionadas!'
     end
 
-  when '3' # Adicionar produto#
+  when '3' # Adicionar produto 
 
     codigo = interface.get_var("Preencha as informações: \nDigite o código: ").to_i
     nome = interface.get_var('Digite o nome: ')
@@ -79,7 +79,7 @@ while escolha != -1
     puts 'Produto Adicionado!'
     end
 
-  when '4' # Remover produto#
+  when '4' # Remover produto 
 
     if !produtos.empty?
 
@@ -103,7 +103,7 @@ while escolha != -1
       puts 'Lista de produtos vazia!'
     end
 
-  when '5' # Realizar venda#
+  when '5' # Realizar venda 
 
     if pessoas.length.zero? # Se a lista de pessoas for vazia, nao executar o resto#
       puts 'Lista de pessoas vazia, portanto não é possível adicionar uma venda.'
@@ -115,14 +115,14 @@ while escolha != -1
       escolha = interface.get_var('O cliente já está registrado? (1 para sim, 0 para não): ')
 
       case escolha
-      when '0' # OPCAO 0#
+      when '0' # Cliente não está registrado 
         nome = interface.get_var('Digite o nome do cliente: ')
         endereco = interface.get_var('Digite o endereço do cliente: ')
           
         i = 0
         bool = false
 
-        while i < pessoas.length && !bool #Compara se a pessoa existe#
+        while i < pessoas.length && !bool # Compara se a pessoa existe
           bool = pessoas.at(i).removepessoa(nome, endereco)
           i += 1
         end
@@ -137,18 +137,18 @@ while escolha != -1
           venda = Venda.new(numero, data, cliente)
           j=0
 
-          while j!=-1
+          while j!=-1 # Realiza a venda
             nome = interface.get_var("Registre os itens. \nNome:")
 
             i = 0
             bool = false
 
-              while i < produtos.length && !bool
-                bool = produtos.at(i).achaproduto(nome)
-                i += 1
-              end
+            while i < produtos.length && !bool # Verifica a existência do produto
+              bool = produtos.at(i).achaproduto(nome)
+              i += 1
+            end
 
-            if bool == true
+            if bool == true # Produto encontrado
               quantidade = interface.get_var('Digite a quantidade:').to_i
 
               item = Item_Venda.new(produtos.at(i - 1).valor, quantidade)
@@ -159,6 +159,9 @@ while escolha != -1
               venda.total(total)
               j = interface.get_var('Digite -1 para parar a compra, e outro valor para continuar comprando.').to_i
 
+            else 
+              puts 'Produto não econtrado.'
+              j = interface.get_var('Digite -1 para parar a compra, e outro valor para continuar comprando.').to_i
             end
           end
           vendas << venda
@@ -166,7 +169,7 @@ while escolha != -1
           puts 'Nome e endereco nao conferem.'
         end
 
-      when '1' # OPCAO 1#
+      when '1' # Cliente já existe
 
         nome = interface.get_var('Digite o nome:')
         rg = interface.get_var('Digite o RG: ')
@@ -174,39 +177,41 @@ while escolha != -1
         i = 0
         bool = false
 
-        while i < clientes.length && !bool
+        while i < clientes.length && !bool # Verifica se o cliente está cadastrado
           bool = clientes.at(i).achacliente(nome, rg)
           i += 1
         end
 
-        if bool
+        if bool # Cliente existe
           puts 'Encontrado!'
           venda = Venda.new(numero, data, clientes.at(i - 1))
 
           j=0
-          while j!=-1
+          while j!=-1 # Realiza a venda
 
-          nome = interface.get_var("Registre os itens. \nNome:")
+            nome = interface.get_var("Registre os itens. \nNome:")
 
-          i = 0
-          bool = false
+            i = 0
+            bool = false
 
-            while i < produtos.length && !bool
+            while i < produtos.length && !bool # Verifica se o produto existe
               bool = produtos.at(i).achaproduto(nome)
               i += 1
             end
 
-          if bool == true
+            if bool == true
 
-            quantidade = interface.get_var('Digite a quantidade: ').to_i
+              quantidade = interface.get_var('Digite a quantidade: ').to_i
 
-            item = Item_Venda.new(produtos.at(i - 1).valor, quantidade)
-            item.produto = produtos.at(i - 1)
-            item.total
-            venda.itens << item
-            total=Array.new
-            venda.total(total)
-            j = interface.get_var('Digite -1 para parar a compra e outro valor para continuar comprando.').to_i
+              item = Item_Venda.new(produtos.at(i - 1).valor, quantidade)
+              item.produto = produtos.at(i - 1)
+              item.total
+              venda.itens << item
+              total=Array.new
+              venda.total(total)
+              j = interface.get_var('Digite -1 para parar a compra e outro valor para continuar comprando.').to_i
+            else
+              puts 'Produto não encontrado.'
             end
           end
           vendas << venda
@@ -222,27 +227,31 @@ while escolha != -1
     i = 0
     bool = false
 
-    while i < pessoas.length && !bool
+    while i < pessoas.length && !bool #Percorre o array de pessoas verificando se a pessoa existe
+      
       bool = pessoas[i].nome.eql?(id)
       i += 1
     end
 
     if bool == true
+
       variavel = interface.get_var('Digite qual informação da pessoa deseja alterar: ')
       informacao = interface.get_var('Digite a nova informação: ')
 
-      pessoas[i-1].alterar_pessoa(variavel, informacao)
+      pessoas[i-1].alterar_pessoa(variavel, informacao) # Atualiza pessoa
 
 
-      # verificando se esta pessoa ja esta como cliente, e se tiver devemos alterar o nome em cliente tambem
+      # verifica se esta pessoa ja esta como cliente, e se tiver devemos alterar o nome em cliente tambem
       i = 0
       bool = false
+
       while i < clientes.length && !bool
         bool = clientes[i].nome.eql?(id)
         i += 1
       end
+
       if bool == true
-        clientes[i-1].alterar_cliente(variavel, informacao)
+        clientes[i-1].alterar_cliente(variavel, informacao) # Atualiza cliente
       end
 
       puts 'Dado alterado!'
@@ -250,12 +259,12 @@ while escolha != -1
       puts 'Pessoa nao encontrada!'
     end
 
-  when '7'
+  when '7' # Alterar dados do Cliente
     id = interface.get_var("Digite o nome do cliente que deseja alterar: ")
     i = 0
     bool = false
 
-    while i < clientes.length && !bool
+    while i < clientes.length && !bool # Verifica se o cliente está cadastrado
       bool = clientes[i].nome.eql?(id)
       i += 1
     end
@@ -264,9 +273,9 @@ while escolha != -1
       variavel = interface.get_var('Digite qual informação do cliente deseja alterar: ')
       informacao = interface.get_var('Digite a nova informação: ')
 
-      clientes[i-1].alterar_cliente(variavel, informacao)
+      clientes[i-1].alterar_cliente(variavel, informacao) # Atualiza o cliente
 
-      #devemos alterar alem do nome em cliente, o nome em pessoa
+      # Alterar o cliente no array de pessoas
       i = 0
       bool = false
       while i < pessoas.length && !bool
@@ -282,12 +291,12 @@ while escolha != -1
       puts 'Cliente nao encontrado!'
     end
 
-  when '8'
+  when '8' # Alterar dados do Produto
     id = interface.get_var("Digite o codigo do produto que deseja alterar: ")
     i = 0
     bool = false
 
-    while i < produtos.length && !bool
+    while i < produtos.length && !bool # Verifica se o produto existe
       bool = produtos[i].codigo.eql?(id)
       i += 1
     end
@@ -302,7 +311,7 @@ while escolha != -1
       puts 'Produto nao encontrado!'
     end
 
-  when '9'
+  when '9' # Visualizar dados cadastrados
     visualizacoes = interface.visualizacoes().to_s
 
     case visualizacoes
@@ -339,7 +348,7 @@ while escolha != -1
     else
       puts 'Escolha invalida'
     end
-  when '-1'
+  when '-1' # Finalizar programa
     break
   else
     puts 'Escolha invalida'
