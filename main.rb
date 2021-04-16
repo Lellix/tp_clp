@@ -238,7 +238,7 @@ while escolha != -1
   
     produtos[i].alterar(variavel, informacao)
   when '9'
-    visualizacoes = interface.get_var.to_i
+    visualizacoes = interface.visualizacoes().to_i
 
     case visualizacoes
     when '1'
