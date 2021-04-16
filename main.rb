@@ -63,6 +63,7 @@ while escolha != -1
     nome = interface.get_var('Digite o nome: ')
     valor = interface.get_var('Digite o valor: ').to_f
 
+    boo = false
     i=0
     while i<produtos.length
       if produtos.at(i).nome.eql?(nome) || produtos.at(i).codigo.eql?(codigo)
