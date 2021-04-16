@@ -26,7 +26,7 @@ end
 
 interface = Interface.new() # Objeto responsável por manipular a interface em linha de código do programa #
 
-# #
+# Executa o programa enquanto a escolha é diferente de -1 #
 while escolha != -1
 
   escolha = interface.opcao
@@ -34,15 +34,15 @@ while escolha != -1
   case escolha
   when '1' # Adicionar pessoa #
 
-    nome = interface.get_var('Digite os dados da pessoa: \nNome: ')
+    nome = interface.get_var("Digite os dados da pessoa: \nNome: ")
     endereco = interface.get_var('Endereco: ')
 
     pessoa = Pessoa.new(nome, endereco)
     pessoas << pessoa
 
-  when '2' # Remover pessoa#
+  when '2' # Remover pessoa #
 
-    if !pessoas.empty?
+    if !pessoas.empty? # Verifica se existe alguma pessoa cadastrada #
 
       nome = interface.get_var('Nome: ')
       endereco = interface.get_var('Endereço: ')
@@ -65,7 +65,7 @@ while escolha != -1
 
   when '3' # Adicionar produto#
 
-    codigo = interface.get_var('Preencha as informações: \nDigite o código: ').to_i
+    codigo = interface.get_var("Preencha as informações: \nDigite o código: ").to_i
     nome = interface.get_var('Digite o nome: ')
     valor = interface.get_var('Digite o valor: ').to_f
 
@@ -96,7 +96,7 @@ while escolha != -1
 
   when '5' # Realizar venda#
 
-    numero = interface.get_var('Preencha as informações. \nNúmero: ')
+    numero = interface.get_var("Preencha as informações. \nNúmero: ")
     data = interface.get_var('Data: ')
 
     if pessoas.length.zero? # Se a lista de pessoas for vazia, nao executar o resto#
@@ -109,7 +109,7 @@ while escolha != -1
       when '0' # OPCAO 0#
         nome = interface.get_var('Digite o nome do cliente: ')
         endereco = interface.get_var('Digite o endereço do cliente: ')
-          
+
         i = 0
         bool = false
 
@@ -120,7 +120,7 @@ while escolha != -1
 
         if bool == true
 
-          rg = interface.get_var('Nome e endereco conferem. \nDigite o rg do cliente: ')
+          rg = interface.get_var("Nome e endereco conferem. \nDigite o rg do cliente: ")
           nascimento = interface.get_var('Digite a data de nascimento do cliente: ')
 
           cliente = Cliente.new(nome, endereco, rg, nascimento)
@@ -129,7 +129,7 @@ while escolha != -1
           j=0
 
           while j!=-1
-            nome = interface.get_var('Registre os itens. \nNome:')
+            nome = interface.get_var("Registre os itens. \nNome:")
 
             i = 0
             bool = false
@@ -174,7 +174,7 @@ while escolha != -1
           j=0
           while j!=-1
 
-          nome = interface.get_var('Registre os itens. \nNome:')
+          nome = interface.get_var("Registre os itens. \nNome:")
 
           i = 0
           bool = false
